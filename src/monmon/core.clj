@@ -1,6 +1,10 @@
 (ns monmon.core
   (:gen-class))
 
+;; Bit of a mess around to learn Clojure
+;; Splits a nucleotide sequence optionally by 'restriction enzyme'
+;; And generates complimentary sequences for each fragment
+
 (use '[clojure.string :only (split join)])
 
 ;; Here be dragons, got it from SO
