@@ -15,27 +15,27 @@
 (def genome "ggcccttttccaaatctcggggcctcatctcgatcgcgcgatacgcatacccccgcgggctttataaacgggcctatagcgcggccctttaaatcgcgctatcgcgatagcgctatagcgctatatttcgg")
 
 (defn split-by-enzyme
-	[enzyme genome]
-	(split genome (enzyme-map enzyme) ))
+    [enzyme genome]
+    (split genome (enzyme-map enzyme) ))
 
 (defn generate-compliment
-	[nucleotide]
-	(let 
-		[nuc-map {"a" "t" "t"  "a" "c" "g" "g" "c"}]
-		(cond (string? nucleotide)
-			(nuc-map nucleotide)
-			:else
-			(nuc-map (str nucleotide)))))
+    [nucleotide]
+    (let 
+        [nuc-map {"a" "t" "t"  "a" "c" "g" "g" "c"}]
+        (cond (string? nucleotide)
+            (nuc-map nucleotide)
+            :else
+            (nuc-map (str nucleotide)))))
 
 (defn generate-compliment-sequence
-	[genome]
-	(join (map generate-compliment (seq genome))))
+    [genome]
+    (join (map generate-compliment (seq genome))))
 
 (defn -main
   [& args]
-  	(cond (empty? args) 
-  		(println (join "\n" 
-  			(map generate-compliment-sequence (split-by-enzyme "lac" genome))))
-  		:else 
-  		(println (join "\n" 
-  			(map generate-compliment-sequence (split-by-enzyme (first args) genome))))))
+    (cond (empty? args) 
+        (println (join "\n" 
+            (map generate-compliment-sequence (split-by-enzyme "lac" genome))))
+        :else 
+        (println (join "\n" 
+            (map generate-compliment-sequence (split-by-enzyme (first args) genome))))))
