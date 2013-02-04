@@ -16,7 +16,7 @@
 
 (defn split-by-enzyme
     [enzyme genome]
-    (split genome (enzyme-map enzyme) ))
+    (split genome (enzyme-map enzyme)))
 
 (defn generate-compliment
     [nucleotide]
