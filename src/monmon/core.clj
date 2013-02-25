@@ -21,7 +21,7 @@
 (defn generate-compliment
     [nucleotide]
     (let 
-        [nuc-map {"a" "t" "t"  "a" "c" "g" "g" "c"}]
+        [nuc-map {"a" "t", "t" "a", "c" "g", "g" "c", "u" "t"}]
         (cond (string? nucleotide)
             (nuc-map nucleotide)
             :else
