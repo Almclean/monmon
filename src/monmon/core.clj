@@ -1,11 +1,6 @@
 (ns monmon.core
-  (:gen-class))
-
-;; Bit of a mess around to learn Clojure
-;; Splits a nucleotide sequence optionally by 'restriction enzyme'
-;; And generates complimentary sequences for each fragment
-
-(use '[clojure.string :only (split join)])
+ (:use [clojure.string :only (split join)])
+ (:gen-class))
 
 ;; Here be dragons, got it from SO
 (defmacro dbg[x] `(let [x# ~x] (println "dbg:" '~x "=" x#) x#))
