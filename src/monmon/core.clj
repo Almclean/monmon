@@ -36,7 +36,7 @@
   [& args]
     (cond (empty? args) 
         (println (join "\n" 
-            (map generate-compliment-sequence (split-by-enzyme "lac" genome))))
+            (r/map generate-compliment-sequence (split-by-enzyme "lac" genome))))
         :else 
         (println (join "\n" 
-            (map generate-compliment-sequence (split-by-enzyme (first args) genome))))))
+            (r/map generate-compliment-sequence (split-by-enzyme (first args) genome))))))
