@@ -2,8 +2,14 @@
  (:use [clojure.string :only (split join)])
  (:gen-class))
 
+(require '[clojure.core.reducers :as r])
+
 ;; Here be dragons, got it from SO
 (defmacro dbg[x] `(let [x# ~x] (println "dbg:" '~x "=" x#) x#))
+
+(defn is-palindrome
+ [genome]
+    (= genome (join (reverse genome))))
 
 (def enzyme-map {"lac" #"ccc" "gac" #"cac" "banff" #"aaa"})
 
@@ -24,7 +30,7 @@
 
 (defn generate-compliment-sequence
     [genome]
-    (join (map generate-compliment (seq genome))))
+    (join (into [] (r/map generate-compliment (seq genome)))))
 
 (defn -main
   [& args]
